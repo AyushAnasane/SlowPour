@@ -1,0 +1,21 @@
+import styles from "@/components/styles/dashboard.module.css";
+import shared from "@/components/styles/shared.module.css";
+import { SensoryRadar } from "@/components/charts/sensory-radar";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
+
+const recent = [
+  { day: "TODAY · 8:42 AM", name: "A slower morning", coffee: "Ethiopia · Guji · Natural", method: "Moka pot", note: "Rounder sweetness, with a soft cocoa finish.", score: "8.4" },
+  { day: "MONDAY · 9:16 AM", name: "Finding the balance", coffee: "Colombia · Huila · Washed", method: "Moka pot", note: "A little bright at first, lovely as it cooled.", score: "7.8" },
+];
+
+export default function DashboardPage() {
+  return <div className={styles["dashboard-page"]}>
+    <header className={styles["topbar"]}><div className={styles["breadcrumb"]}>YOUR JOURNAL <span>/</span> TODAY</div><div className={styles["topbar-right"]}><span className={styles["weather-note"]}>A good day for a slow cup</span><ThemeToggle/><div className={`${shared.avatar} ${styles["avatar-small"]}`}>A</div></div></header>
+    <section className={styles["welcome-section"]}><div><p className={styles["eyebrow"]}>THURSDAY, NOVEMBER 5</p><h1>A little time for<br/><em>yourself.</em></h1><p className={styles["welcome-copy"]}>Every cup has a story. Here&apos;s where yours begins.</p></div><div className={styles["welcome-art"]} aria-hidden="true"><div className={styles["sun-disc"]}/><div className={`${styles["art-steam"]} ${styles["steam-one"]}`}/><div className={`${styles["art-steam"]} ${styles["steam-two"]}`}/><div className={styles["art-cup"]}><div className={styles["cup-coffee"]}/><div className={styles["cup-handle"]}/></div><div className={styles["art-saucer"]}/><span className={styles["art-caption"]}>a moment, just for you</span></div></section>
+    <section className={styles["quick-stats"]}><div className={styles["stat-item"]}><span className={styles["stat-label"]}>BREWS THIS MONTH</span><strong>12</strong><span className={styles["stat-foot"]}>A lovely little collection</span></div><div className={styles["stat-item"]}><span className={styles["stat-label"]}>COFFEES OPEN</span><strong>04</strong><span className={styles["stat-foot"]}>A few new favourites</span></div><div className={styles["stat-item"]}><span className={styles["stat-label"]}>RECIPES SAVED</span><strong>06</strong><span className={styles["stat-foot"]}>Your trusted rituals</span></div><div className={styles["stat-action"]}><a href="/brews#new-brew" className={styles["primary-button"]}><span>＋</span> Log a brew</a><span className={styles["stat-foot"]}>Start a new little experiment</span></div></section>
+    <div className={styles["section-heading"]}><div><p className={styles["eyebrow"]}>NOTES FROM THE COUNTER</p><h2>Recently brewed</h2></div><a className={styles["text-link"]} href="/brews">All brew notes <span>↗</span></a></div>
+    <section className={styles["lower-grid"]}><div className={styles["recent-list"]}>{recent.map((brew) => <article className={styles["brew-card"]} key={brew.name}><div className={styles["brew-thumb"]}><div className={styles["thumb-ring"]}/><div className={styles["thumb-cup"]}/></div><div className={styles["brew-info"]}><p className={styles["eyebrow"]}>{brew.day}</p><h3>{brew.name}</h3><p className={styles["brew-coffee"]}>{brew.coffee}</p><p className={styles["brew-note"]}>“{brew.note}”</p><div className={styles["brew-meta"]}><span>{brew.method}</span><span className={styles["meta-dot"]}>·</span><span>Personal note</span></div></div><div className={styles["brew-score"]}><strong>{brew.score}</strong><span>YOUR RATING</span></div></article>)}</div>
+      <aside className={styles["tasting-card"]}><div className={styles["tasting-heading"]}><div><p className={styles["eyebrow"]}>A TASTE, REMEMBERED</p><h3>Your sensory notes</h3></div><span className={styles["tiny-flower"]}>✳</span></div><p className={styles["tasting-subtitle"]}>Ethiopia · Guji · Natural</p><SensoryRadar/><div className={styles["chart-legend"]}><span><i/> Your latest tasting</span><a href="/brews">Explore notes ↗</a></div></aside></section>
+    <footer className={styles["dashboard-footer"]}><span>MADE FOR THE LOVE OF A GOOD CUP</span><span>TAKE YOUR TIME. TASTE THE DIFFERENCE.</span></footer>
+  </div>;
+}

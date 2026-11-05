@@ -1,0 +1,5 @@
+@import "tailwindcss";
+:root{--paper:#f7f4ed;--paper-deep:#f0ebe1;--card:#fbf9f4;--ink:#40352c;--muted:#8b7e70;--line:#e7dfd3;--coffee:#987456;--sage:#89917b;--shadow:0 12px 36px rgba(73,54,37,.055)}
+.dark{--paper:#24211e;--paper-deep:#2d2823;--card:#302b26;--ink:#eee5d8;--muted:#b2a392;--line:#494037;--coffee:#c39a75;--sage:#a1a88f;--shadow:0 12px 36px rgba(0,0,0,.18);color-scheme:dark}
+*{box-sizing:border-box}html{min-height:100%;background:var(--paper)}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}
+html.dark,.dark body{background:var(--paper);color:var(--ink)}
